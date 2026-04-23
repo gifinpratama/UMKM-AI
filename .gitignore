@@ -1,0 +1,47 @@
+# Environment
+.env
+.env.backup
+.env.production
+
+# Dependencies
+/node_modules
+/vendor
+
+# Build artifacts
+/public/build
+/public/hot
+/public/storage
+
+# Database
+/database/*.sqlite
+/database/*.sqlite-journal
+
+# Storage
+/storage/*.key
+/storage/pail
+
+# IDE & Editor
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+.phpactor.json
+_ide_helper.php
+
+# Testing
+.phpunit.result.cache
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# Auth
+/auth.json
+Homestead.json
+Homestead.yaml
+
+# Gemini
+.gemini/
