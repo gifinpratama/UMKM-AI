@@ -1,104 +1,97 @@
+{{--
+    Tujuan     : Halaman login — Neubrutalism style
+    Caller     : routes/web.php → AuthController@showLogin
+--}}
 @extends('layouts.landing')
 
 @section('title', 'Masuk - UMKM.AI')
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center px-6 relative">
-    {{-- Background --}}
-    <div class="absolute w-[500px] h-[500px] rounded-full bg-indigo-600/15 blur-[120px] -top-40 -left-40"></div>
-    <div class="absolute w-[400px] h-[400px] rounded-full bg-purple-600/10 blur-[100px] -bottom-40 -right-40"></div>
+<div style="min-height:100vh;background:var(--color-bg-base);background-image:radial-gradient(circle,#00000015 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:center;justify-content:center;padding:24px 16px;">
 
-    <div class="w-full max-w-md relative z-10">
-        {{-- Logo --}}
-        <div class="text-center mb-8">
-            <a href="{{ route('landing') }}" class="inline-flex items-center gap-3 mb-6">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/25">
-                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                </div>
-                <span class="text-2xl font-bold gradient-text">UMKM.AI</span>
-            </a>
-            <h1 class="text-2xl font-bold text-white mb-2">Selamat Datang Kembali</h1>
-            <p class="text-sm text-dark-400">Masuk ke dashboard untuk mengelola bisnis Anda</p>
+    <div style="width:100%;max-width:440px;">
+
+        {{-- Logo / Header --}}
+        <div style="text-align:center;margin-bottom:28px;">
+            <div style="display:inline-flex;align-items:center;gap:12px;padding:12px 20px;background:var(--color-orange);border:4px solid #000;box-shadow:var(--nb-shadow-lg);border-radius:6px;margin-bottom:20px;">
+                <svg width="28" height="28" fill="none" stroke="#000" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                <span style="font-family:var(--font-display);font-size:26px;font-weight:800;color:#000;letter-spacing:-0.5px;">UMKM.AI</span>
+            </div>
+            <h1 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:#000;margin:0 0 6px;letter-spacing:-0.5px;">Selamat Datang!</h1>
+            <p style="font-family:var(--font-body);font-size:13px;color:#555;margin:0;">Masuk ke akun UMKM.AI kamu</p>
         </div>
 
-        {{-- Login Form --}}
-        <div class="glass-card p-8" id="login-card">
+        {{-- Card --}}
+        <div style="background:#fff;border:4px solid #000;border-radius:6px;box-shadow:var(--nb-shadow-xl);padding:32px;">
+
+            {{-- Error --}}
             @if($errors->any())
-            <div class="mb-4 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
+            <div class="alert alert-error">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 {{ $errors->first() }}
             </div>
             @endif
 
-            <form method="POST" action="{{ route('login') }}" class="space-y-5">
+            @if(session('error'))
+            <div class="alert alert-error">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                {{ session('error') }}
+            </div>
+            @endif
+
+            <form method="POST" action="{{ route('login') }}" style="display:flex;flex-direction:column;gap:18px;">
                 @csrf
+
+                {{-- Email --}}
                 <div>
-                    <label class="form-label">Email</label>
-                    <input type="email" name="email" value="{{ old('email') }}" class="form-input" placeholder="nama@email.com" required autofocus>
+                    <label for="email" class="form-label">📧 Alamat Email</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}"
+                        class="form-input {{ $errors->has('email') ? 'error' : '' }}"
+                        placeholder="kamu@bisnis.com" required autofocus>
+                    @error('email')<p class="form-error">⚠ {{ $message }}</p>@enderror
                 </div>
 
+                {{-- Password --}}
                 <div>
-                    <label class="form-label">Password</label>
-                    <input type="password" name="password" class="form-input" placeholder="••••••••" required>
+                    <label for="password" class="form-label">🔒 Kata Sandi</label>
+                    <input id="password" type="password" name="password"
+                        class="form-input {{ $errors->has('password') ? 'error' : '' }}"
+                        placeholder="••••••••" required>
+                    @error('password')<p class="form-error">⚠ {{ $message }}</p>@enderror
                 </div>
 
-                <div class="flex items-center justify-between">
-                    <label class="flex items-center gap-2 cursor-pointer">
-                        <input type="checkbox" name="remember" class="w-4 h-4 rounded border-dark-600 bg-dark-800 text-indigo-500 focus:ring-indigo-500">
-                        <span class="text-sm text-dark-400">Ingat saya</span>
-                    </label>
+                {{-- Remember --}}
+                <div style="display:flex;align-items:center;gap:8px;">
+                    <input id="remember" type="checkbox" name="remember"
+                        style="width:18px;height:18px;border:3px solid #000;border-radius:3px;accent-color:var(--color-orange);cursor:pointer;">
+                    <label for="remember" style="font-family:var(--font-body);font-size:13px;color:#333;cursor:pointer;font-weight:700;">Ingat saya</label>
                 </div>
 
-                <button type="submit" class="btn-primary w-full justify-center py-3">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
-                    Masuk
+                {{-- Submit --}}
+                <button type="submit" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;padding:12px 20px;">
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/></svg>
+                    Masuk Sekarang
                 </button>
             </form>
 
-            <div class="mt-6 text-center">
-                <p class="text-sm text-dark-500">Belum punya akun? <a href="{{ route('register') }}" class="text-indigo-400 hover:text-indigo-300 font-medium">Daftar Gratis</a></p>
+            {{-- Divider --}}
+            <div style="display:flex;align-items:center;gap:12px;margin:20px 0;">
+                <div style="flex:1;height:3px;background:#000;"></div>
+                <span style="font-family:var(--font-display);font-size:12px;font-weight:800;color:#000;">ATAU</span>
+                <div style="flex:1;height:3px;background:#000;"></div>
             </div>
+
+            {{-- Register link --}}
+            <a href="{{ route('register') }}" class="btn-secondary" style="width:100%;justify-content:center;font-size:15px;padding:12px 20px;">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                Daftar Akun Baru
+            </a>
         </div>
 
-        {{-- Demo Accounts --}}
-        <div class="mt-6 glass-card p-4">
-            <p class="text-xs text-dark-500 mb-3 text-center font-semibold">AKUN DEMO</p>
-            <div class="grid grid-cols-2 gap-3">
-                <button onclick="fillDemo('admin@umkm.ai', 'password')" class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5 hover:border-indigo-500/30 transition text-center cursor-pointer">
-                    <p class="text-xs font-semibold text-indigo-400">Admin</p>
-                    <p class="text-[10px] text-dark-500">admin@umkm.ai</p>
-                </button>
-                <button onclick="fillDemo('seller@umkm.ai', 'password')" class="p-2.5 rounded-lg bg-white/[0.03] border border-white/5 hover:border-emerald-500/30 transition text-center cursor-pointer">
-                    <p class="text-xs font-semibold text-emerald-400">Seller</p>
-                    <p class="text-[10px] text-dark-500">seller@umkm.ai</p>
-                </button>
-            </div>
-        </div>
+        {{-- Footer --}}
+        <p style="text-align:center;font-family:var(--font-body);font-size:11px;color:#777;margin-top:20px;font-weight:700;">
+            © {{ date('Y') }} UMKM.AI — Platform Analisis Bisnis UMKM
+        </p>
     </div>
 </div>
 @endsection
-
-@push('scripts')
-<script>
-function fillDemo(email, password) {
-    document.querySelector('input[name="email"]').value = email;
-    document.querySelector('input[name="password"]').value = password;
-    anime({
-        targets: '#login-card',
-        scale: [1, 1.02, 1],
-        duration: 400,
-        easing: 'easeInOutQuad'
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    anime({
-        targets: '#login-card',
-        opacity: [0, 1],
-        translateY: [30, 0],
-        scale: [0.95, 1],
-        duration: 800,
-        easing: 'easeOutCubic',
-    });
-});
-</script>
-@endpush

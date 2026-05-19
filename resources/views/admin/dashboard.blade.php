@@ -6,117 +6,117 @@
 
 @section('content')
 {{-- Stats Grid --}}
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;">
     <div class="stat-card">
-        <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/15 flex items-center justify-center">
-                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(139,211,221,0.15);display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-teal)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <span class="badge badge-success">Aktif: {{ $activeSellers }}</span>
         </div>
-        <p class="text-2xl font-bold text-white">{{ $totalSellers }}</p>
-        <p class="text-xs text-dark-500 mt-1">Total Seller UMKM</p>
+        <p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ $totalSellers }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Total Seller UMKM</p>
     </div>
 
     <div class="stat-card">
-        <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center">
-                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(34,164,71,0.12);display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
         </div>
-        <p class="text-2xl font-bold text-white">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</p>
-        <p class="text-xs text-dark-500 mt-1">Total Revenue</p>
+        <p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">Rp {{ number_format($totalRevenue, 0, ',', '.') }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Total Revenue</p>
     </div>
 
     <div class="stat-card">
-        <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/15 flex items-center justify-center">
-                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(221,107,32,0.12);display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-orange)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
             </div>
         </div>
-        <p class="text-2xl font-bold text-white">{{ number_format($totalTransactions) }}</p>
-        <p class="text-xs text-dark-500 mt-1">Total Transaksi</p>
+        <p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ number_format($totalTransactions) }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Total Transaksi</p>
     </div>
 
     <div class="stat-card">
-        <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-xl bg-amber-500/15 flex items-center justify-center">
-                <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:rgba(250,174,43,0.12);display:flex;align-items:center;justify-content:center;">
+                <svg width="20" height="20" fill="none" stroke="var(--color-golden)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
             </div>
         </div>
-        <p class="text-2xl font-bold text-white">{{ $totalDatabases }}</p>
-        <p class="text-xs text-dark-500 mt-1">Database Aktif</p>
+        <p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ $totalDatabases }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Database Aktif</p>
     </div>
 </div>
 
-<div class="grid lg:grid-cols-3 gap-6">
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;">
     {{-- Revenue Chart --}}
-    <div class="lg:col-span-2 glass-card p-6">
-        <h3 class="text-sm font-semibold text-white mb-4">Revenue Bulanan (6 Bulan Terakhir)</h3>
+    <div class="card-elevated">
+        <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--color-text-primary);margin:0 0 16px;">Revenue Bulanan (6 Bulan Terakhir)</h3>
         <canvas id="revenueChart" height="200"></canvas>
     </div>
 
     {{-- Top Sellers --}}
-    <div class="glass-card p-6">
-        <h3 class="text-sm font-semibold text-white mb-4">Top Seller by Revenue</h3>
-        <div class="space-y-3">
+    <div class="card-elevated">
+        <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--color-text-primary);margin:0 0 16px;">Top Seller by Revenue</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;">
             @forelse($topSellers as $index => $seller)
-            <div class="flex items-center gap-3 p-2.5 rounded-lg bg-white/[0.02]">
-                <span class="text-xs font-bold text-dark-500 w-5">{{ $index + 1 }}</span>
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold shrink-0">
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;background:var(--color-surface-soft);">
+                <span style="font-family:var(--font-body);font-size:12px;font-weight:600;color:var(--color-text-muted);width:20px;">{{ $index + 1 }}</span>
+                <div style="width:32px;height:32px;border-radius:8px;background:var(--color-teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;color:var(--color-text-primary);font-size:12px;flex-shrink:0;">
                     {{ strtoupper(substr($seller->business_name ?? $seller->name, 0, 1)) }}
                 </div>
-                <div class="flex-1 min-w-0">
-                    <p class="text-sm font-medium text-dark-200 truncate">{{ $seller->business_name ?? $seller->name }}</p>
-                    <p class="text-[10px] text-dark-500">Rp {{ number_format($seller->total_revenue, 0, ',', '.') }}</p>
+                <div style="flex:1;min-width:0;">
+                    <p style="font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--color-text-primary);margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ $seller->business_name ?? $seller->name }}</p>
+                    <p style="font-family:var(--font-body);font-size:11px;color:var(--color-text-muted);margin:0;">Rp {{ number_format($seller->total_revenue, 0, ',', '.') }}</p>
                 </div>
             </div>
             @empty
-            <p class="text-sm text-dark-500 text-center py-4">Belum ada data seller</p>
+            <p style="font-family:var(--font-body);font-size:14px;color:var(--color-text-muted);text-align:center;padding:16px;">Belum ada data seller</p>
             @endforelse
         </div>
     </div>
 </div>
 
 {{-- Recent Sellers & Activity --}}
-<div class="grid lg:grid-cols-2 gap-6 mt-6">
-    <div class="glass-card p-6">
-        <div class="flex items-center justify-between mb-4">
-            <h3 class="text-sm font-semibold text-white">Seller Terbaru</h3>
-            <a href="{{ route('admin.sellers.create') }}" class="btn-primary text-xs py-1.5 px-3">+ Tambah</a>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;">
+    <div class="card-elevated">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--color-text-primary);margin:0;">Seller Terbaru</h3>
+            <a href="{{ route('admin.sellers.create') }}" class="btn-primary btn-sm">+ Tambah</a>
         </div>
-        <div class="overflow-x-auto">
+        <div style="overflow-x:auto;">
             <table class="data-table">
                 <thead><tr><th>Nama</th><th>Bisnis</th><th>Status</th><th>Tanggal</th></tr></thead>
                 <tbody>
                     @forelse($recentSellers as $seller)
                     <tr>
-                        <td class="font-medium text-dark-200">{{ $seller->name }}</td>
+                        <td style="font-weight:600;">{{ $seller->name }}</td>
                         <td>{{ $seller->business_name }}</td>
                         <td><span class="badge {{ $seller->is_active ? 'badge-success' : 'badge-danger' }}">{{ $seller->is_active ? 'Aktif' : 'Nonaktif' }}</span></td>
-                        <td class="text-dark-500 text-xs">{{ $seller->created_at->format('d M Y') }}</td>
+                        <td style="color:var(--color-text-muted);font-size:12px;">{{ $seller->created_at->format('d M Y') }}</td>
                     </tr>
                     @empty
-                    <tr><td colspan="4" class="text-center text-dark-500">Belum ada seller</td></tr>
+                    <tr><td colspan="4" style="text-align:center;color:var(--color-text-muted);">Belum ada seller</td></tr>
                     @endforelse
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="glass-card p-6">
-        <h3 class="text-sm font-semibold text-white mb-4">Aktivitas Terbaru</h3>
-        <div class="space-y-3">
+    <div class="card-elevated">
+        <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--color-text-primary);margin:0 0 16px;">Aktivitas Terbaru</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;">
             @forelse($recentActivity as $activity)
-            <div class="flex items-start gap-3 p-2 rounded-lg">
-                <div class="w-2 h-2 rounded-full bg-indigo-400 mt-1.5 shrink-0"></div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--color-border);">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--color-orange);margin-top:6px;flex-shrink:0;"></div>
                 <div>
-                    <p class="text-sm text-dark-300">{{ $activity->description }}</p>
-                    <p class="text-[10px] text-dark-600">{{ $activity->user->name ?? 'System' }} · {{ $activity->created_at->diffForHumans() }}</p>
+                    <p style="font-family:var(--font-body);font-size:13px;color:var(--color-text-primary);margin:0 0 2px;">{{ $activity->description }}</p>
+                    <p style="font-family:var(--font-body);font-size:11px;color:var(--color-text-muted);margin:0;">{{ $activity->user->name ?? 'System' }} · {{ $activity->created_at->diffForHumans() }}</p>
                 </div>
             </div>
             @empty
-            <p class="text-sm text-dark-500 text-center py-4">Belum ada aktivitas</p>
+            <p style="font-family:var(--font-body);font-size:14px;color:var(--color-text-muted);text-align:center;padding:16px;">Belum ada aktivitas</p>
             @endforelse
         </div>
     </div>
@@ -131,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('revenueChart').getContext('2d');
     
     const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-    gradient.addColorStop(0, 'rgba(99, 102, 241, 0.3)');
-    gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
+    gradient.addColorStop(0, 'rgba(221,107,32,0.25)');
+    gradient.addColorStop(1, 'rgba(221,107,32,0.02)');
 
     new Chart(ctx, {
         type: 'line',
@@ -141,12 +141,13 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Revenue',
                 data: revenueData.map(d => d.revenue),
-                borderColor: '#6366f1',
+                borderColor: '#DD6B20',
                 backgroundColor: gradient,
                 fill: true,
                 tension: 0.4,
-                pointBackgroundColor: '#6366f1',
-                pointBorderColor: '#6366f1',
+                pointBackgroundColor: '#DD6B20',
+                pointBorderColor: '#FFFFFF',
+                pointBorderWidth: 2,
                 pointRadius: 4,
                 borderWidth: 2,
             }]
@@ -156,20 +157,18 @@ document.addEventListener('DOMContentLoaded', () => {
             plugins: {
                 legend: { display: false },
                 tooltip: {
-                    backgroundColor: 'rgba(15, 23, 42, 0.9)',
-                    titleColor: '#e2e8f0',
-                    bodyColor: '#94a3b8',
-                    borderColor: 'rgba(99, 102, 241, 0.2)',
+                    backgroundColor: '#1A202C',
+                    titleColor: '#E2E8F0',
+                    bodyColor: '#718096',
+                    borderColor: 'rgba(221,107,32,0.3)',
                     borderWidth: 1,
                     cornerRadius: 8,
-                    callbacks: {
-                        label: (ctx) => 'Rp ' + ctx.parsed.y.toLocaleString('id-ID')
-                    }
+                    callbacks: { label: (ctx) => 'Rp ' + ctx.parsed.y.toLocaleString('id-ID') }
                 }
             },
             scales: {
-                x: { grid: { color: 'rgba(148, 163, 184, 0.06)' }, ticks: { color: '#64748b', font: { size: 11 } } },
-                y: { grid: { color: 'rgba(148, 163, 184, 0.06)' }, ticks: { color: '#64748b', font: { size: 11 }, callback: v => 'Rp ' + (v/1000000).toFixed(1) + 'jt' } }
+                x: { grid: { color: '#E2E8F0' }, ticks: { color: '#718096', font: { size: 11, family: 'IBM Plex Mono' } } },
+                y: { grid: { color: '#E2E8F0' }, ticks: { color: '#718096', font: { size: 11, family: 'IBM Plex Mono' }, callback: v => 'Rp ' + (v/1000000).toFixed(1) + 'jt' } }
             }
         }
     });

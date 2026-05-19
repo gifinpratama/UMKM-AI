@@ -5,16 +5,16 @@
 
 @section('content')
 {{-- Seller Info Card --}}
-<div class="glass-card p-6 mb-6">
-    <div class="flex items-start justify-between">
-        <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl font-bold">
+<div class="card-elevated" style="margin-bottom:24px;">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:16px;">
+            <div style="width:56px;height:56px;border-radius:10px;background:var(--color-orange);border:3px solid #000;box-shadow:var(--nb-shadow-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;color:#fff;font-size:20px;">
                 {{ strtoupper(substr($seller->name, 0, 1)) }}
             </div>
             <div>
-                <h2 class="text-lg font-bold text-white">{{ $seller->name }}</h2>
-                <p class="text-sm text-dark-400">{{ $seller->email }} · {{ $seller->phone ?? '-' }}</p>
-                <p class="text-xs text-dark-500 mt-1">{{ $seller->business_type }} · Tenant: <code class="text-indigo-400">{{ $seller->tenant_id }}</code></p>
+                <h2 style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ $seller->name }}</h2>
+                <p style="font-family:var(--font-body);font-size:13px;color:var(--color-text-muted);margin:4px 0 0;">{{ $seller->email }} · {{ $seller->phone ?? '-' }}</p>
+                <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">{{ $seller->business_type }} · Tenant: <code style="color:var(--color-orange);">{{ $seller->tenant_id }}</code></p>
             </div>
         </div>
         <span class="badge {{ $seller->is_active ? 'badge-success' : 'badge-danger' }}">{{ $seller->is_active ? 'Aktif' : 'Nonaktif' }}</span>
@@ -22,41 +22,41 @@
 </div>
 
 {{-- Stats --}}
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-    <div class="stat-card"><p class="text-2xl font-bold text-white">{{ $stats['total_products'] }}</p><p class="text-xs text-dark-500 mt-1">Total Produk</p></div>
-    <div class="stat-card"><p class="text-2xl font-bold text-white">{{ $stats['total_transactions'] }}</p><p class="text-xs text-dark-500 mt-1">Total Transaksi</p></div>
-    <div class="stat-card"><p class="text-2xl font-bold text-white">Rp {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p><p class="text-xs text-dark-500 mt-1">Total Revenue</p></div>
-    <div class="stat-card"><p class="text-2xl font-bold text-white">{{ $stats['total_customers'] }}</p><p class="text-xs text-dark-500 mt-1">Total Pelanggan</p></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;">
+    <div class="stat-card"><p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ $stats['total_products'] }}</p><p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Total Produk</p></div>
+    <div class="stat-card"><p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ $stats['total_transactions'] }}</p><p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Total Transaksi</p></div>
+    <div class="stat-card"><p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">Rp {{ number_format($stats['total_revenue'], 0, ',', '.') }}</p><p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Total Revenue</p></div>
+    <div class="stat-card"><p style="font-family:var(--font-display);font-size:22px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ $stats['total_customers'] }}</p><p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:4px 0 0;">Total Pelanggan</p></div>
 </div>
 
 {{-- Database Info --}}
 @if($seller->umkmDatabase)
-<div class="glass-card p-6 mb-6">
-    <h3 class="text-sm font-semibold text-white mb-3">Informasi Database</h3>
-    <div class="grid grid-cols-3 gap-4">
-        <div><p class="text-xs text-dark-500">Nama DB</p><p class="text-sm text-dark-200 font-medium">{{ $seller->umkmDatabase->db_name }}</p></div>
-        <div><p class="text-xs text-dark-500">Tenant ID</p><p class="text-sm text-indigo-400 font-mono">{{ $seller->umkmDatabase->tenant_id }}</p></div>
-        <div><p class="text-xs text-dark-500">Status</p><span class="badge badge-success">{{ $seller->umkmDatabase->status }}</span></div>
+<div class="card-elevated" style="margin-bottom:24px;">
+    <h3 style="font-family:var(--font-display);font-size:15px;font-weight:800;color:var(--color-text-primary);margin:0 0 12px;">Informasi Database</h3>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div><p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Nama DB</p><p style="font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--color-text-primary);margin:0;">{{ $seller->umkmDatabase->db_name }}</p></div>
+        <div><p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Tenant ID</p><p style="font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--color-orange);margin:0;">{{ $seller->umkmDatabase->tenant_id }}</p></div>
+        <div><p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Status</p><span class="badge badge-success">{{ $seller->umkmDatabase->status }}</span></div>
     </div>
 </div>
 @endif
 
 {{-- Recent Transactions --}}
-<div class="glass-card p-6">
-    <h3 class="text-sm font-semibold text-white mb-4">Transaksi Terbaru</h3>
+<div class="card-elevated">
+    <h3 style="font-family:var(--font-display);font-size:15px;font-weight:800;color:var(--color-text-primary);margin:0 0 16px;">Transaksi Terbaru</h3>
     <table class="data-table">
         <thead><tr><th>Kode</th><th>Pelanggan</th><th>Total</th><th>Status</th><th>Tanggal</th></tr></thead>
         <tbody>
             @forelse($recentTransactions as $trx)
             <tr>
-                <td class="font-mono text-indigo-400 text-xs">{{ $trx->transaction_code }}</td>
+                <td style="font-family:var(--font-body);font-size:12px;color:var(--color-orange);">{{ $trx->transaction_code }}</td>
                 <td>{{ $trx->customer_name }}</td>
-                <td class="font-medium text-dark-200">Rp {{ number_format($trx->total, 0, ',', '.') }}</td>
+                <td style="font-weight:700;">Rp {{ number_format($trx->total, 0, ',', '.') }}</td>
                 <td><span class="badge {{ $trx->status === 'completed' ? 'badge-success' : 'badge-warning' }}">{{ ucfirst($trx->status) }}</span></td>
-                <td class="text-xs text-dark-500">{{ $trx->created_at->format('d M Y H:i') }}</td>
+                <td style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);">{{ $trx->created_at->format('d M Y H:i') }}</td>
             </tr>
             @empty
-            <tr><td colspan="5" class="text-center text-dark-500">Belum ada transaksi</td></tr>
+            <tr><td colspan="5" style="text-align:center;color:var(--color-text-muted);padding:24px;">Belum ada transaksi</td></tr>
             @endforelse
         </tbody>
     </table>

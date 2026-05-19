@@ -5,38 +5,38 @@
 
 @section('content')
 {{-- Quick Stats --}}
-<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;">
     <div class="stat-card">
-        <p class="text-xs text-dark-500 mb-1">Revenue Bulan Ini</p>
-        <p class="text-xl font-bold text-white">Rp {{ number_format($stats['revenue_this_month'], 0, ',', '.') }}</p>
-        <p class="text-xs {{ $stats['revenue_growth_percent'] >= 0 ? 'text-emerald-400' : 'text-red-400' }}">
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Revenue Bulan Ini</p>
+        <p style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--color-text-primary);margin:0;">Rp {{ number_format($stats['revenue_this_month'], 0, ',', '.') }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:{{ $stats['revenue_growth_percent'] >= 0 ? 'var(--color-success)' : 'var(--color-danger)' }};margin:4px 0 0;">
             {{ $stats['revenue_growth_percent'] >= 0 ? '↑' : '↓' }} {{ abs($stats['revenue_growth_percent']) }}% vs bulan lalu
         </p>
     </div>
     <div class="stat-card">
-        <p class="text-xs text-dark-500 mb-1">Rata-rata Transaksi</p>
-        <p class="text-xl font-bold text-white">Rp {{ number_format($stats['avg_transaction_value'], 0, ',', '.') }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Rata-rata Transaksi</p>
+        <p style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--color-text-primary);margin:0;">Rp {{ number_format($stats['avg_transaction_value'], 0, ',', '.') }}</p>
     </div>
     <div class="stat-card">
-        <p class="text-xs text-dark-500 mb-1">Total Transaksi</p>
-        <p class="text-xl font-bold text-white">{{ $stats['transactions_this_month'] }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Total Transaksi</p>
+        <p style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--color-text-primary);margin:0;">{{ $stats['transactions_this_month'] }}</p>
     </div>
     <div class="stat-card">
-        <p class="text-xs text-dark-500 mb-1">Produk Stok Rendah</p>
-        <p class="text-xl font-bold {{ $stats['low_stock_products'] > 0 ? 'text-amber-400' : 'text-emerald-400' }}">{{ $stats['low_stock_products'] }}</p>
+        <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Stok Rendah</p>
+        <p style="font-family:var(--font-display);font-size:20px;font-weight:800;color:{{ $stats['low_stock_products'] > 0 ? 'var(--color-golden)' : 'var(--color-success)' }};margin:0;">{{ $stats['low_stock_products'] }}</p>
     </div>
 </div>
 
-<div class="grid lg:grid-cols-2 gap-6">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
     {{-- Generate AI Analysis --}}
-    <div class="glass-card p-6 border-indigo-500/20">
-        <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+    <div class="card-elevated" style="border-left:4px solid var(--color-orange);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:var(--color-orange);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-orange);">
+                <svg width="20" height="20" fill="none" stroke="#fff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             </div>
             <div>
-                <h3 class="text-sm font-semibold text-white">Analisis Bisnis AI</h3>
-                <p class="text-[10px] text-dark-500">Powered by OpenRouter AI</p>
+                <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--color-text-primary);margin:0;">Analisis Bisnis AI</h3>
+                <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0;">Powered by OpenRouter AI</p>
             </div>
         </div>
 
@@ -49,66 +49,62 @@
         </form>
 
         @if($latestSnapshot)
-        <div class="mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
-            <p class="text-[10px] text-dark-500 mb-2">Terakhir di-generate: {{ $latestSnapshot->generated_at->format('d M Y H:i') }}</p>
+        <div class="card-surface" style="margin-top:12px;">
+            <p style="font-family:var(--font-body);font-size:11px;color:var(--color-text-muted);margin:0 0 8px;">Terakhir: {{ $latestSnapshot->generated_at->format('d M Y H:i') }}</p>
             @if(isset($latestSnapshot->insights['summary']))
-                <p class="text-sm text-dark-300 leading-relaxed">{{ $latestSnapshot->insights['summary'] }}</p>
+                <p style="font-family:var(--font-body);font-size:13px;color:var(--color-text-primary);line-height:1.6;margin:0 0 8px;">{{ $latestSnapshot->insights['summary'] }}</p>
             @endif
             @if(isset($latestSnapshot->insights['health_score']))
-                <div class="mt-3 flex items-center gap-3">
-                    <span class="text-xs text-dark-500">Skor Kesehatan:</span>
-                    <span class="text-lg font-bold gradient-text">{{ $latestSnapshot->insights['health_score'] }}/100</span>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                    <span style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);">Skor Kesehatan:</span>
+                    <span style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--color-orange);">{{ $latestSnapshot->insights['health_score'] }}/100</span>
                 </div>
             @endif
             @if(isset($latestSnapshot->insights['trend']))
-                <div class="mt-2 flex items-center gap-2">
-                    <span class="text-xs text-dark-500">Tren:</span>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                    <span style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);">Tren:</span>
                     <span class="badge {{ $latestSnapshot->insights['trend'] === 'naik' ? 'badge-success' : ($latestSnapshot->insights['trend'] === 'turun' ? 'badge-danger' : 'badge-info') }}">
                         {{ ucfirst($latestSnapshot->insights['trend']) }}
                     </span>
                 </div>
             @endif
             @if(isset($latestSnapshot->insights['recommendations']))
-                <div class="mt-3">
-                    <p class="text-xs text-dark-500 mb-2">Rekomendasi:</p>
-                    <ul class="space-y-1">
-                        @foreach(array_slice($latestSnapshot->insights['recommendations'], 0, 4) as $rec)
-                        <li class="text-xs text-dark-400 flex items-start gap-2">
-                            <span class="text-emerald-400 mt-0.5">•</span> {{ $rec }}
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
+                <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0 0 4px;">Rekomendasi:</p>
+                <ul style="margin:0;padding-left:16px;">
+                    @foreach(array_slice($latestSnapshot->insights['recommendations'], 0, 4) as $rec)
+                    <li style="font-family:var(--font-body);font-size:13px;color:var(--color-text-primary);margin-bottom:4px;">{{ $rec }}</li>
+                    @endforeach
+                </ul>
             @endif
         </div>
         @endif
     </div>
 
     {{-- AI Chat --}}
-    <div class="glass-card p-6 flex flex-col" style="min-height: 500px;">
-        <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+    <div class="card-elevated" style="display:flex;flex-direction:column;min-height:500px;border-left:4px solid var(--color-teal);">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <div style="width:40px;height:40px;border-radius:10px;background:var(--color-teal);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-teal);">
+                <svg width="20" height="20" fill="none" stroke="var(--color-text-primary)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
             </div>
             <div>
-                <h3 class="text-sm font-semibold text-white">AI Chat Assistant</h3>
-                <p class="text-[10px] text-dark-500">Tanya apa saja tentang bisnis Anda</p>
+                <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--color-text-primary);margin:0;">AI Chat Assistant</h3>
+                <p style="font-family:var(--font-body);font-size:12px;color:var(--color-text-muted);margin:0;">Tanya apa saja tentang bisnis Anda</p>
             </div>
         </div>
 
-        <div id="chatMessages" class="flex-1 overflow-y-auto space-y-3 mb-4 pr-2" style="max-height: 350px;">
+        <div id="chatMessages" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;margin-bottom:16px;padding-right:4px;max-height:350px;">
             <div class="chat-bubble chat-bubble-ai">
-                Halo! Saya UMKM.AI Assistant 👋 Saya bisa membantu menganalisis bisnis Anda. Coba tanyakan:
-                <br>• "Bagaimana performa bisnis saya bulan ini?"
-                <br>• "Produk apa yang paling laris?"
-                <br>• "Saran untuk meningkatkan penjualan?"
+                Halo! Saya UMKM.AI Assistant 👋 Saya bisa membantu menganalisis bisnis Anda. Coba tanyakan:<br>
+                • "Bagaimana performa bisnis saya bulan ini?"<br>
+                • "Produk apa yang paling laris?"<br>
+                • "Saran untuk meningkatkan penjualan?"
             </div>
         </div>
 
-        <div class="flex items-center gap-2">
-            <input type="text" id="chatInput" class="form-input flex-1" placeholder="Ketik pertanyaan..." onkeydown="if(event.key==='Enter')sendChat()">
-            <button onclick="sendChat()" class="btn-primary px-4 py-2.5" id="sendBtn">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+        <div style="display:flex;gap:8px;">
+            <input type="text" id="chatInput" class="form-input" style="flex:1;" placeholder="Ketik pertanyaan..." onkeydown="if(event.key==='Enter')sendChat()">
+            <button onclick="sendChat()" class="btn-primary" style="padding:12px 16px;" id="sendBtn">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
             </button>
         </div>
     </div>
@@ -116,14 +112,14 @@
 
 {{-- Top Products --}}
 @if(!empty($stats['top_products']))
-<div class="mt-6 glass-card p-6">
-    <h3 class="text-sm font-semibold text-white mb-4">Produk Terlaris Bulan Ini</h3>
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+<div class="card-elevated" style="margin-top:24px;">
+    <h3 style="font-family:var(--font-display);font-size:16px;font-weight:800;color:var(--color-text-primary);margin:0 0 16px;">Produk Terlaris Bulan Ini</h3>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;">
         @foreach($stats['top_products'] as $name => $qty)
-        <div class="p-3 rounded-lg bg-white/[0.02] border border-white/5 text-center">
-            <p class="text-sm font-medium text-dark-200">{{ $name }}</p>
-            <p class="text-lg font-bold gradient-text mt-1">{{ $qty }}</p>
-            <p class="text-[10px] text-dark-500">terjual</p>
+        <div class="card-surface" style="text-align:center;">
+            <p style="font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;">{{ $name }}</p>
+            <p style="font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--color-orange);margin:0;">{{ $qty }}</p>
+            <p style="font-family:var(--font-body);font-size:11px;color:var(--color-text-muted);margin:2px 0 0;">terjual</p>
         </div>
         @endforeach
     </div>
@@ -216,7 +212,7 @@ async function sendChat() {
     // Loading
     const loading = document.createElement('div');
     loading.className = 'chat-bubble chat-bubble-ai';
-    loading.innerHTML = '<div class="flex items-center gap-2"><div class="w-2 h-2 bg-indigo-400 rounded-full animate-pulse"></div><div class="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" style="animation-delay:0.2s"></div><div class="w-2 h-2 bg-indigo-400 rounded-full animate-pulse" style="animation-delay:0.4s"></div></div>';
+    loading.innerHTML = '<div style="display:flex;align-items:center;gap:6px;"><div style="width:8px;height:8px;border-radius:50%;background:var(--color-teal);animation:pulse 1s infinite;"></div><div style="width:8px;height:8px;border-radius:50%;background:var(--color-teal);animation:pulse 1s 0.2s infinite;"></div><div style="width:8px;height:8px;border-radius:50%;background:var(--color-teal);animation:pulse 1s 0.4s infinite;"></div></div>';
     messages.appendChild(loading);
     messages.scrollTop = messages.scrollHeight;
 

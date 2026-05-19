@@ -4,22 +4,23 @@
 @section('page_subtitle', 'Manajemen semua akun seller dan database')
 
 @section('content')
-<div class="flex items-center justify-between mb-6">
-    <form method="GET" class="flex items-center gap-3">
-        <input type="text" name="search" value="{{ request('search') }}" class="form-input w-64" placeholder="Cari seller...">
-        <select name="status" class="form-input w-40" onchange="this.form.submit()">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;gap:16px;">
+    <form method="GET" style="display:flex;align-items:center;gap:12px;">
+        <input type="text" name="search" value="{{ request('search') }}" class="form-input" style="width:260px;" placeholder="Cari seller...">
+        <select name="status" class="form-input" style="width:160px;" onchange="this.form.submit()">
             <option value="">Semua Status</option>
             <option value="active" {{ request('status') == 'active' ? 'selected' : '' }}>Aktif</option>
             <option value="inactive" {{ request('status') == 'inactive' ? 'selected' : '' }}>Tidak Aktif</option>
         </select>
+        <button type="submit" class="btn-secondary">Cari</button>
     </form>
     <a href="{{ route('admin.sellers.create') }}" class="btn-primary">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
         Tambah Seller & Database
     </a>
 </div>
 
-<div class="glass-card overflow-hidden">
+<div class="card-elevated" style="padding:0;overflow:hidden;">
     <div class="overflow-x-auto">
         <table class="data-table">
             <thead>

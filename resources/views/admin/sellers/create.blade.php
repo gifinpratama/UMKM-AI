@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="max-w-3xl">
-    <div class="glass-card p-8">
+    <div class="card-elevated">
         @if($errors->any())
         <div class="mb-6 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
             <ul class="list-disc list-inside space-y-1">@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
