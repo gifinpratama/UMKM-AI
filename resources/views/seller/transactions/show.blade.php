@@ -17,7 +17,7 @@
     </div>
 
     {{-- Main Info --}}
-    <div class="glass-card p-6 mb-6">
+    <div class="card-elevated" style="padding:24px;margin-bottom:24px;">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
                 <p class="text-xs text-dark-500 mb-1">Kode Transaksi</p>
@@ -49,7 +49,7 @@
     </div>
 
     {{-- Items Table --}}
-    <div class="glass-card p-6 mb-6">
+    <div class="card-elevated" style="padding:24px;margin-bottom:24px;">
         <h3 class="text-sm font-semibold text-white mb-4">Item Transaksi</h3>
         <div class="overflow-x-auto">
             <table class="data-table">
@@ -76,7 +76,7 @@
     </div>
 
     {{-- Summary --}}
-    <div class="glass-card p-6">
+    <div class="card-elevated" style="padding:24px;">
         <h3 class="text-sm font-semibold text-white mb-4">Ringkasan Pembayaran</h3>
         <div class="space-y-3">
             <div class="flex items-center justify-between text-sm">
@@ -107,7 +107,7 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    anime({ targets: '.glass-card', opacity: [0, 1], translateY: [20, 0], delay: anime.stagger(120), duration: 600, easing: 'easeOutCubic' });
+    anime({ targets: '.card-elevated', opacity: [0, 1], translateY: [20, 0], delay: anime.stagger(120), duration: 600, easing: 'easeOutCubic' });
 });
 </script>
 @endpush

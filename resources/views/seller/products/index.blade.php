@@ -30,7 +30,7 @@
                     <div class="flex items-center gap-3">
                         <div style="width:40px;height:40px;border-radius:8px;background:var(--color-surface-soft);border:1px solid var(--color-border);display:flex;align-items:center;justify-content:center;color:var(--color-text-muted);flex-shrink:0;overflow:hidden;">
                             @if($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-full object-cover">
+                            <img src="{{ asset('storage/' . $product->image) }}" class="w-full h-full object-cover" loading="lazy" alt="{{ $product->name }}">
                             @else
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
                             @endif
@@ -68,5 +68,5 @@
         </tbody>
     </table>
 </div>
-<div class="mt-4">{{ $products->links() }}</div>
+<div class="mt-4">{{ $products->withQueryString()->links() }}</div>
 @endsection

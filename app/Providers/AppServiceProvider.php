@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Transaction;
+use App\Models\Product;
+use App\Observers\TransactionObserver;
+use App\Observers\ProductObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Cache-busting observers
+        Transaction::observe(TransactionObserver::class);
+        Product::observe(ProductObserver::class);
     }
 }

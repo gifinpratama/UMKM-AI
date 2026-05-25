@@ -92,5 +92,5 @@
     </div>
 </div>
 
-<div class="mt-4">{{ $sellers->links() }}</div>
+<div class="mt-4">{{ $sellers->withQueryString()->links() }}</div>
 @endsection

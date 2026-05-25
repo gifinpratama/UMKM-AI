@@ -7,7 +7,7 @@
 <div class="max-w-4xl mx-auto space-y-6">
 
     {{-- Business Info --}}
-    <div class="glass-card p-6">
+    <div class="card-elevated" style="padding:24px;">
         <div class="flex items-center gap-3 mb-6">
             <div class="w-8 h-8 rounded-lg bg-indigo-500/15 flex items-center justify-center">
                 <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
@@ -80,7 +80,7 @@
     </div>
 
     {{-- Account Info --}}
-    <div class="glass-card p-6">
+    <div class="card-elevated" style="padding:24px;">
         <div class="flex items-center gap-3 mb-4">
             <div class="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center">
                 <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
@@ -108,7 +108,7 @@
     </div>
 
     {{-- Change Password --}}
-    <div class="glass-card p-6">
+    <div class="card-elevated" style="padding:24px;">
         <div class="flex items-center gap-3 mb-6">
             <div class="w-8 h-8 rounded-lg bg-amber-500/15 flex items-center justify-center">
                 <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
@@ -151,7 +151,7 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    anime({ targets: '.glass-card', opacity: [0, 1], translateY: [20, 0], delay: anime.stagger(120), duration: 600, easing: 'easeOutCubic' });
+    anime({ targets: '.card-elevated', opacity: [0, 1], translateY: [20, 0], delay: anime.stagger(120), duration: 600, easing: 'easeOutCubic' });
 });
 
 function previewAvatar(input) {

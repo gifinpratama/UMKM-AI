@@ -22,7 +22,7 @@
     </a>
 </div>
 
-<div class="glass-card overflow-hidden">
+<div class="card-elevated" style="overflow:hidden;">
     <table class="data-table">
         <thead><tr><th>Kode</th><th>Pelanggan</th><th>Items</th><th>Total</th><th>Bayar</th><th>Status</th><th>Tanggal</th></tr></thead>
         <tbody>
@@ -46,5 +46,5 @@
         </tbody>
     </table>
 </div>
-<div class="mt-4">{{ $transactions->links() }}</div>
+<div class="mt-4">{{ $transactions->withQueryString()->links() }}</div>
 @endsection
