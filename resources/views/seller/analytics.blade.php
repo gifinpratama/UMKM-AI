@@ -94,7 +94,7 @@
 
         <div id="chatMessages" style="flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;margin-bottom:16px;padding-right:4px;max-height:350px;">
             <div class="chat-bubble chat-bubble-ai">
-                Halo! Saya UMKM.AI Assistant 👋 Saya bisa membantu menganalisis bisnis Anda. Coba tanyakan:<br>
+                Halo! Saya UMKM-AI Assistant 👋 Saya bisa membantu menganalisis bisnis Anda. Coba tanyakan:<br>
                 • "Bagaimana performa bisnis saya bulan ini?"<br>
                 • "Produk apa yang paling laris?"<br>
                 • "Saran untuk meningkatkan penjualan?"

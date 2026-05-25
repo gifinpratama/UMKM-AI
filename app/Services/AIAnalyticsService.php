@@ -30,7 +30,7 @@ class AIAnalyticsService
                 'Authorization' => 'Bearer ' . $this->apiKey,
                 'Content-Type' => 'application/json',
                 'HTTP-Referer' => config('app.url', 'http://localhost'),
-                'X-Title' => 'UMKM.AI Analytics',
+                'X-Title' => 'UMKM-AI Analytics',
             ])->timeout(30)->post($this->baseUrl, [
                 'model' => $this->model,
                 'messages' => [
@@ -131,7 +131,7 @@ class AIAnalyticsService
     {
         $data = $this->collectBusinessData($tenantId);
         
-        $systemPrompt = "Kamu adalah AI asisten bisnis UMKM bernama 'UMKM.AI Assistant'. Jawab pertanyaan pemilik UMKM berdasarkan data bisnis mereka. Gunakan Bahasa Indonesia yang ramah dan mudah dipahami. Data bisnis saat ini:\n" . json_encode($data);
+        $systemPrompt = "Kamu adalah AI asisten bisnis UMKM bernama 'UMKM-AI Assistant'. Jawab pertanyaan pemilik UMKM berdasarkan data bisnis mereka. Gunakan Bahasa Indonesia yang ramah dan mudah dipahami. Data bisnis saat ini:\n" . json_encode($data);
 
         return $this->askAI($systemPrompt, $message);
     }

@@ -1,6 +1,6 @@
 import './bootstrap';
 
-// ===== UMKM.AI Animation Utilities =====
+// ===== UMKM-AI Animation Utilities =====
 // These are globally available animation helpers using anime.js
 
 document.addEventListener('DOMContentLoaded', () => {

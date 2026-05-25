@@ -4,7 +4,7 @@
 --}}
 @extends('layouts.landing')
 
-@section('title', 'Daftar - UMKM.AI')
+@section('title', 'Daftar - UMKM-AI')
 
 @section('content')
 <div style="min-height:100vh;background:var(--color-bg-base);background-image:radial-gradient(circle,#00000015 1px,transparent 1px);background-size:24px 24px;display:flex;align-items:center;justify-content:center;padding:32px 16px;" id="register-card">
@@ -15,7 +15,7 @@
         <div style="text-align:center;margin-bottom:24px;">
             <a href="{{ route('landing') }}" style="display:inline-flex;align-items:center;gap:12px;padding:10px 18px;background:var(--color-orange);border:4px solid #000;box-shadow:var(--nb-shadow-lg);border-radius:6px;margin-bottom:16px;text-decoration:none;">
                 <svg width="24" height="24" fill="none" stroke="#000" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                <span style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#000;">UMKM.AI</span>
+                <span style="font-family:var(--font-display);font-size:22px;font-weight:800;color:#000;">UMKM-AI</span>
             </a>
             <h1 style="font-family:var(--font-display);font-size:28px;font-weight:800;color:#000;margin:0 0 6px;letter-spacing:-0.5px;">Buat Akun Baru</h1>
             <p style="font-family:var(--font-body);font-size:13px;color:#555;margin:0;">Daftarkan bisnis UMKM kamu dan mulai analisis dengan AI 🚀</p>
@@ -109,7 +109,7 @@
         </div>
 
         <p style="text-align:center;font-family:var(--font-body);font-size:11px;color:#777;margin-top:16px;font-weight:700;">
-            © {{ date('Y') }} UMKM.AI — Platform Analisis Bisnis UMKM
+            © {{ date('Y') }} UMKM-AI — Platform Analisis Bisnis UMKM
         </p>
     </div>
 </div>

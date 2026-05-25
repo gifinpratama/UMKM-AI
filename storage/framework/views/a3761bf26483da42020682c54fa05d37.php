@@ -1,13 +1,11 @@
-@extends('layouts.landing')
+<?php $__env->startSection('title', 'UMKM-AI - Platform Analisis & Digitalisasi UMKM Berbasis AI'); ?>
+<?php $__env->startSection('meta_description', 'Transform bisnis UMKM Anda dengan kecerdasan buatan. Analisis penjualan, prediksi revenue, dan rekomendasi produk otomatis.'); ?>
 
-@section('title', 'UMKM-AI - Platform Analisis & Digitalisasi UMKM Berbasis AI')
-@section('meta_description', 'Transform bisnis UMKM Anda dengan kecerdasan buatan. Analisis penjualan, prediksi revenue, dan rekomendasi produk otomatis.')
-
-@section('content')
-    {{-- Particle Background --}}
+<?php $__env->startSection('content'); ?>
+    
     <div class="particles-bg" id="particles"></div>
 
-    {{-- Navigation --}}
+    
     <nav id="main-nav" class="fixed left-0 right-0 z-50 border-b border-white/5" style="top:42px;">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
             <a href="/" class="flex items-center gap-3">
@@ -29,15 +27,15 @@
             </div>
 
             <div class="flex items-center gap-3">
-                <a href="{{ route('login') }}" class="btn-secondary text-sm py-2 px-4">Masuk</a>
-                <a href="{{ route('register') }}" class="btn-primary text-sm py-2 px-4">Daftar Gratis</a>
+                <a href="<?php echo e(route('login')); ?>" class="btn-secondary text-sm py-2 px-4">Masuk</a>
+                <a href="<?php echo e(route('register')); ?>" class="btn-primary text-sm py-2 px-4">Daftar Gratis</a>
             </div>
         </div>
     </nav>
 
-    {{-- Hero Section --}}
+    
     <section class="flex items-center justify-center pt-20 overflow-hidden">
-        {{-- Gradient Orbs --}}
+        
         <div id="orb-1" class="absolute w-[600px] h-[600px] rounded-full bg-indigo-600/20 blur-[120px] -top-40 -left-40">
         </div>
         <div id="orb-2"
@@ -47,14 +45,14 @@
         </div>
 
         <div class="relative z-9 max-w-7xl mx-auto px-6 text-center">
-            {{-- Badge --}}
+            
             <div id="hero-badge"
                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium mb-8 opacity-0">
                 <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
                 Platform AI untuk UMKM Indonesia
             </div>
 
-            {{-- Headline --}}
+            
             <h1 id="hero-title" class="text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6">
                 <span class="text-black opacity-0 hero-word">Digitalkan</span>
                 <span class="text-black opacity-0 hero-word">Bisnis</span>
@@ -65,16 +63,16 @@
                 <span class="opacity-0 hero-word gradient-text-accent">AI</span>
             </h1>
 
-            {{-- Subtitle --}}
+            
             <p id="hero-subtitle"
                 class="text-lg md:text-xl text-dark-400 max-w-2xl mx-auto mb-10 leading-relaxed opacity-0">
                 Analisis penjualan otomatis, prediksi pendapatan, rekomendasi produk cerdas,
                 dan insight pelanggan — semua dalam satu platform yang mudah digunakan.
             </p>
 
-            {{-- CTA Buttons --}}
+            
             <div id="hero-cta" class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 opacity-0">
-                <a href="{{ route('register') }}" class="btn-primary px-8 py-3.5 text-base">
+                <a href="<?php echo e(route('register')); ?>" class="btn-primary px-8 py-3.5 text-base">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -95,7 +93,7 @@
         </div>
     </section>
 
-    {{-- Features Section --}}
+    
     <section id="features" class="relative py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
@@ -107,7 +105,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {{-- Feature 1 --}}
+                
                 <div class="glass-card p-6 feature-card">
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/20 to-indigo-600/20 flex items-center justify-center mb-4 border border-indigo-500/20">
@@ -121,7 +119,7 @@
                         memberikan insight, tren, serta prediksi pendapatan yang akurat.</p>
                 </div>
 
-                {{-- Feature 2 --}}
+                
                 <div class="glass-card p-6 feature-card">
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 flex items-center justify-center mb-4 border border-emerald-500/20">
@@ -135,7 +133,7 @@
                         real-time dengan dashboard interaktif yang mudah dipahami.</p>
                 </div>
 
-                {{-- Feature 3 --}}
+                
                 <div class="glass-card p-6 feature-card">
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-600/20 flex items-center justify-center mb-4 border border-purple-500/20">
@@ -149,7 +147,7 @@
                         otomatis dan rekomendasi restock dari AI.</p>
                 </div>
 
-                {{-- Feature 4 --}}
+                
                 <div class="glass-card p-6 feature-card">
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-600/20 flex items-center justify-center mb-4 border border-amber-500/20">
@@ -163,7 +161,7 @@
                         memberikan strategi pemasaran per segmen.</p>
                 </div>
 
-                {{-- Feature 5 --}}
+                
                 <div class="glass-card p-6 feature-card">
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 flex items-center justify-center mb-4 border border-cyan-500/20">
@@ -177,7 +175,7 @@
                         memberikan jawaban dan saran bisnis 24/7.</p>
                 </div>
 
-                {{-- Feature 6 --}}
+                
                 <div class="glass-card p-6 feature-card">
                     <div
                         class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500/20 to-rose-600/20 flex items-center justify-center mb-4 border border-rose-500/20">
@@ -194,7 +192,7 @@
         </div>
     </section>
 
-    {{-- How It Works --}}
+    
     <section id="how-it-works" class="relative py-24 overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/20 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -214,7 +212,7 @@
                     <h3 class="text-lg font-semibold text-white mb-3">Daftar Akun</h3>
                     <p class="text-sm text-dark-400 leading-relaxed">Buat akun gratis dan masukkan informasi bisnis UMKM
                         Anda. Proses cepat, tanpa biaya.</p>
-                    {{-- Connector line --}}
+                    
                     <div
                         class="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-gradient-to-r from-indigo-500/50 to-transparent">
                     </div>
@@ -246,7 +244,7 @@
         </div>
     </section>
 
-    {{-- Stats Section --}}
+    
     <section id="stats" class="relative py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="glass-card p-12 text-center stat-section-animate">
@@ -271,7 +269,7 @@
     </section>
 
 
-    {{-- About Section --}}
+    
     <section id="about" class="relative py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -366,7 +364,7 @@
         </div>
     </section>
 
-    {{-- CTA Section --}}
+    
     <section class="relative py-24">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <div class="glass-card p-12 glow-primary relative overflow-hidden cta-animate">
@@ -375,7 +373,7 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Siap Mengembangkan Bisnis UMKM Anda?</h2>
                     <p class="text-dark-400 mb-8 max-w-lg mx-auto">Bergabung dengan ribuan UMKM lainnya yang sudah merasakan
                         manfaat analisis bisnis berbasis AI.</p>
-                    <a href="{{ route('register') }}" class="btn-primary px-10 py-4 text-lg">
+                    <a href="<?php echo e(route('register')); ?>" class="btn-primary px-10 py-4 text-lg">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -387,7 +385,7 @@
         </div>
     </section>
 
-    {{-- Footer --}}
+    
     <footer class="border-t border-white/5 py-12">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
@@ -431,13 +429,13 @@
                 </div>
             </div>
             <div class="border-t border-white/5 pt-8 text-center">
-                <p class="text-xs text-dark-600">&copy; {{ date('Y') }} UMKM-AI. All rights reserved.</p>
+                <p class="text-xs text-dark-600">&copy; <?php echo e(date('Y')); ?> UMKM-AI. All rights reserved.</p>
             </div>
         </div>
     </footer>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('scripts')
+<?php $__env->startPush('scripts'); ?>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // ===== PARTICLE BACKGROUND =====
@@ -655,4 +653,5 @@
 
         });
     </script>
-@endpush
+<?php $__env->stopPush(); ?>
+<?php echo $__env->make('layouts.landing', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH F:\laragon\www\project-ai\resources\views/landing.blade.php ENDPATH**/ ?>

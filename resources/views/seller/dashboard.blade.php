@@ -151,7 +151,7 @@
             <svg width="22" height="22" fill="none" stroke="#000" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
         <div style="flex:1;">
-            <h3 style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--color-golden);margin:0;letter-spacing:-0.3px;">UMKM.AI Quick Insight</h3>
+            <h3 style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--color-golden);margin:0;letter-spacing:-0.3px;">UMKM-AI Quick Insight</h3>
             <p style="font-family:var(--font-body);font-size:11px;color:#aaa;margin:0;font-weight:700;">Ringkasan performa bisnis kamu</p>
         </div>
         <a href="{{ route('seller.analytics') }}" class="btn-accent btn-sm">Analisis Lengkap →</a>

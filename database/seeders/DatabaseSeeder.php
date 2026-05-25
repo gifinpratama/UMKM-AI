@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
     {
         // === ADMIN ===
         User::create([
-            'name' => 'Admin UMKM.AI',
-            'email' => 'admin@umkm.ai',
+            'name' => 'Admin UMKM-AI',
+            'email' => 'admin@UMKM-AI',
             'password' => Hash::make('password'),
             'role' => 'admin',
             'tenant_id' => null,
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $tenant1 = 'tenant_' . Str::random(12);
         $seller1 = User::create([
             'name' => 'Budi Santoso',
-            'email' => 'seller@umkm.ai',
+            'email' => 'seller@UMKM-AI',
             'password' => Hash::make('password'),
             'role' => 'seller',
             'tenant_id' => $tenant1,
@@ -145,7 +145,7 @@ class DatabaseSeeder extends Seeder
         $tenant2 = 'tenant_' . Str::random(12);
         $seller2 = User::create([
             'name' => 'Anisa Putri',
-            'email' => 'anisa@umkm.ai',
+            'email' => 'anisa@UMKM-AI',
             'password' => Hash::make('password'),
             'role' => 'seller',
             'tenant_id' => $tenant2,
@@ -191,7 +191,7 @@ class DatabaseSeeder extends Seeder
         $tenant3 = 'tenant_' . Str::random(12);
         $seller3 = User::create([
             'name' => 'Joko Widodo',
-            'email' => 'joko@umkm.ai',
+            'email' => 'joko@UMKM-AI',
             'password' => Hash::make('password'),
             'role' => 'seller',
             'tenant_id' => $tenant3,
@@ -212,7 +212,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // Activity logs
-        ActivityLog::create(['user_id' => 1, 'action' => 'system_init', 'description' => 'Sistem UMKM.AI berhasil diinisialisasi', 'created_at' => now()->subDays(5)]);
+        ActivityLog::create(['user_id' => 1, 'action' => 'system_init', 'description' => 'Sistem UMKM-AI berhasil diinisialisasi', 'created_at' => now()->subDays(5)]);
         ActivityLog::create(['user_id' => 1, 'action' => 'create_seller', 'description' => 'Admin membuat seller: Warung Kopi Nusantara', 'created_at' => now()->subDays(4)]);
         ActivityLog::create(['user_id' => 1, 'action' => 'create_seller', 'description' => 'Admin membuat seller: Trendy Fashion Store', 'created_at' => now()->subDays(3)]);
         ActivityLog::create(['user_id' => 1, 'action' => 'create_seller', 'description' => 'Admin membuat seller: Toko Elektronik Jaya', 'created_at' => now()->subDays(2)]);
