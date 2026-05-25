@@ -35,12 +35,11 @@
     
     <section class="flex items-center justify-center pt-20 overflow-hidden" style="padding-top: 30px;">
         
-        <div id="orb-1" class="absolute w-[600px] h-[600px] rounded-full bg-indigo-600/20 blur-[120px] -top-40 -left-40">
+        <div id="orb-1" class="absolute w-[600px] h-[600px] rounded-full -top-40 -left-40 pointer-events-none" style="background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(79, 70, 229, 0) 70%);">
         </div>
-        <div id="orb-2"
-            class="absolute w-[500px] h-[500px] rounded-full bg-purple-600/15 blur-[100px] -bottom-40 -right-40"></div>
-        <div id="orb-3"
-            class="absolute w-[300px] h-[300px] rounded-full bg-emerald-600/10 blur-[80px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div id="orb-2" class="absolute w-[500px] h-[500px] rounded-full -bottom-40 -right-40 pointer-events-none" style="background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, rgba(147, 51, 234, 0) 70%);">
+        </div>
+        <div id="orb-3" class="absolute w-[300px] h-[300px] rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none" style="background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0) 70%);">
         </div>
 
         <div class="relative z-9 max-w-7xl mx-auto px-6 text-center">
@@ -439,7 +438,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             // ===== PARTICLE BACKGROUND =====
             const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 15; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 particle.style.left = Math.random() * 100 + '%';
@@ -469,34 +468,7 @@
             });
 
             // ===== GRADIENT ORBS ANIMATION =====
-            anime({
-                targets: '#orb-1',
-                translateX: [0, 80, -40, 0],
-                translateY: [0, -60, 40, 0],
-                scale: [1, 1.2, 0.9, 1],
-                duration: 20000,
-                loop: true,
-                easing: 'easeInOutSine',
-            });
-
-            anime({
-                targets: '#orb-2',
-                translateX: [0, -60, 80, 0],
-                translateY: [0, 40, -60, 0],
-                scale: [1, 0.9, 1.1, 1],
-                duration: 25000,
-                loop: true,
-                easing: 'easeInOutSine',
-            });
-
-            anime({
-                targets: '#orb-3',
-                scale: [1, 1.3, 0.8, 1],
-                opacity: [0.5, 0.8, 0.4, 0.5],
-                duration: 15000,
-                loop: true,
-                easing: 'easeInOutSine',
-            });
+            // Animasi JS dinonaktifkan pada elemen blur untuk mencegah bottleneck render (GPU/CPU).
 
             // ===== HERO ANIMATIONS =====
             const heroTimeline = anime.timeline({ easing: 'easeOutCubic' });
@@ -638,17 +610,24 @@
 
             // ===== NAVBAR SCROLL EFFECT (glass transparan) =====
             const nav = document.querySelector('nav.fixed');
+            let navScrolled = false;
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
-                    nav.style.background = 'rgba(2, 6, 23, 0.45)';
-                    nav.style.backdropFilter = 'blur(16px)';
-                    nav.style.webkitBackdropFilter = 'blur(16px)';
+                    if (!navScrolled) {
+                        nav.style.background = 'rgba(2, 6, 23, 0.45)';
+                        nav.style.backdropFilter = 'blur(16px)';
+                        nav.style.webkitBackdropFilter = 'blur(16px)';
+                        navScrolled = true;
+                    }
                 } else {
-                    nav.style.background = 'transparent';
-                    nav.style.backdropFilter = 'none';
-                    nav.style.webkitBackdropFilter = 'none';
+                    if (navScrolled) {
+                        nav.style.background = 'transparent';
+                        nav.style.backdropFilter = 'none';
+                        nav.style.webkitBackdropFilter = 'none';
+                        navScrolled = false;
+                    }
                 }
-            });
+            }, { passive: true });
 
         });
     </script>
