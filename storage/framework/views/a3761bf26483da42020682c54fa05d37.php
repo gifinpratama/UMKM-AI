@@ -2,8 +2,7 @@
 <?php $__env->startSection('meta_description', 'Transform bisnis UMKM Anda dengan kecerdasan buatan. Analisis penjualan, prediksi revenue, dan rekomendasi produk otomatis.'); ?>
 
 <?php $__env->startSection('content'); ?>
-    
-    <div class="particles-bg" id="particles"></div>
+    <div class="particles-bg" id="particles" style="height: 100px; width: 849px;"></div>
 
     
     <nav id="main-nav" class="fixed left-0 right-0 z-50 border-b border-white/5" style="top:42px;">
@@ -34,7 +33,7 @@
     </nav>
 
     
-    <section class="flex items-center justify-center pt-20 overflow-hidden">
+    <section class="flex items-center justify-center pt-20 overflow-hidden" style="padding-top: 30px;">
         
         <div id="orb-1" class="absolute w-[600px] h-[600px] rounded-full bg-indigo-600/20 blur-[120px] -top-40 -left-40">
         </div>
